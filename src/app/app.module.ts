@@ -10,7 +10,7 @@ import { RecepcionComponent } from './recepcion/recepcion.component';
 import { ContadorComponent } from './contador/contador.component';
 import { DresscodeComponent } from './dresscode/dresscode.component';
 import { CalendarioComponent } from './calendario/calendario.component';
-import { CalendarComponent } from './calendar/calendar.component';
+
 import { BancComponent } from './banc/banc.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { FormsModule } from '@angular/forms';
@@ -18,20 +18,14 @@ import { VerifiComponent } from './verifi/verifi.component';
 import { RouterModule } from '@angular/router';
 import * as Aos from 'aos';
 import { HttpClientModule } from '@angular/common/http';
+import { LoadingComponent } from './loading/loading.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    InicioComponent,
-    InvitadoComponent,
-    CeremoniaComponent,
-    RecepcionComponent,
-    ContadorComponent,
-    DresscodeComponent,
-    CalendarioComponent,
-    CalendarComponent,
-    BancComponent,
     VerifiComponent
+    
   ],
   imports: [
     BrowserModule,

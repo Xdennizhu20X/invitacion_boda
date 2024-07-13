@@ -53,9 +53,7 @@ export class CalendarioComponent  {
       },
       width: '100%',
       padding: '1rem',
-      background: `
-        url("/assets/img/fondoflor.jpg")
-      `,
+    background: 'white',
       preConfirm: () => {
         const firstName = (document.getElementById('first-name') as HTMLInputElement).value;
         const lastName = (document.getElementById('last-name') as HTMLInputElement).value;
@@ -84,11 +82,23 @@ export class CalendarioComponent  {
     this.eventoService.createEvento(data).subscribe(
       response => {
         console.log('Datos guardados:', response);
-        // Show a success message or do any additional processing
+        Swal.fire({
+          icon: 'success',
+          title: 'Datos guardados correctamente',
+          showConfirmButton: false,
+          timer: 1500
+        });
       },
       error => {
         console.error('Error al guardar los datos:', error);
-        // Show an error message
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Ocurrió un problema con los datos, por favor vuelva a llenar el formulario',
+          showConfirmButton: true
+        }).then(() => {
+          this.openSaveDialog();
+        });
       }
     );
   }

@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class EventoService {
-  private apiUrl = 'http://localhost:3000/api/eventos';
+  private apiUrl = 'https://invitados.onrender.com/api/eventos';  // Cambia esta URL
 
   constructor(private http: HttpClient) { }
 
