@@ -2,7 +2,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { VerifiComponent } from './verifi/verifi.component';
-import { NotFoundComponent } from './NotFound/NotFound.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/verifi', pathMatch: 'full' },
@@ -14,7 +13,7 @@ const routes: Routes = [
   { path: 'invitado', loadChildren: () => import('./invitado/invitado.module').then(m => m.InvitadoModule) },
   { path: 'recepcion', loadChildren: () => import('./recepcion/recepcion.module').then(m => m.RecepcionModule) },
   { path: 'verifi', component: VerifiComponent },
-  { path: '**', component: NotFoundComponent }
+  { path: '**', redirectTo: '/verifi' }
 ];
 
 @NgModule({

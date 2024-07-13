@@ -6,4 +6,4 @@ import { Router } from '@angular/router';
   templateUrl: './inicio.component.html',
   styleUrls: ['./inicio.component.css']
 })
-export class InicioComponent { }  
+export class InicioComponent { }

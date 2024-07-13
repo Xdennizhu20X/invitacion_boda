@@ -26,7 +26,7 @@ import { NotFoundComponent } from './NotFound/NotFound.component';
   declarations: [
     AppComponent,
     VerifiComponent,
-    NotFoundComponent
+    
     
   ],
   imports: [
