@@ -19,12 +19,14 @@ import { RouterModule } from '@angular/router';
 import * as Aos from 'aos';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingComponent } from './loading/loading.component';
+import { NotFoundComponent } from './NotFound/NotFound.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    VerifiComponent
+    VerifiComponent,
+    NotFoundComponent
     
   ],
   imports: [
