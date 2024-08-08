@@ -1,7 +1,5 @@
-import { Component, OnInit , ElementRef, ViewChild} from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
 import { EventoService } from '../evento.service';
-
 import Swal from 'sweetalert2';
 
 @Component({
@@ -9,7 +7,7 @@ import Swal from 'sweetalert2';
   templateUrl: './calendario.component.html',
   styleUrls: ['./calendario.component.css']
 })
-export class CalendarioComponent  { 
+export class CalendarioComponent {
   constructor(private eventoService: EventoService) {}
 
   openSaveDialog() {
@@ -53,7 +51,7 @@ export class CalendarioComponent  {
       },
       width: '100%',
       padding: '1rem',
-    background: 'white',
+      background: 'white',
       preConfirm: () => {
         const firstName = (document.getElementById('first-name') as HTMLInputElement).value;
         const lastName = (document.getElementById('last-name') as HTMLInputElement).value;
@@ -69,6 +67,7 @@ export class CalendarioComponent  {
       }
     }).then((result) => {
       if (result.isConfirmed) {
+        this.showLoading();
         this.saveFile(result.value);
       } else if (result.isDenied) {
         this.handleDenial();
@@ -78,10 +77,22 @@ export class CalendarioComponent  {
     });
   }
 
+  showLoading() {
+    Swal.fire({
+      title: 'Guardando...',
+      html: 'Por favor espere mientras se guardan los datos.',
+      allowOutsideClick: false,
+      didOpen: () => {
+        Swal.showLoading();
+      }
+    });
+  }
+
   saveFile(data: any) {
     this.eventoService.createEvento(data).subscribe(
       response => {
         console.log('Datos guardados:', response);
+        Swal.close(); // Cerrar el mensaje de carga
         Swal.fire({
           icon: 'success',
           title: 'Datos guardados correctamente',
@@ -91,6 +102,7 @@ export class CalendarioComponent  {
       },
       error => {
         console.error('Error al guardar los datos:', error);
+        Swal.close(); // Cerrar el mensaje de carga
         Swal.fire({
           icon: 'error',
           title: 'Error',

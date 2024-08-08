@@ -20,6 +20,7 @@ import * as Aos from 'aos';
 import { HttpClientModule } from '@angular/common/http';
 import { LoadingComponent } from './loading/loading.component';
 import { NotFoundComponent } from './NotFound/NotFound.component';
+import { AnalyticsService } from './analytics.service';
 
 
 @NgModule({
@@ -40,7 +41,7 @@ import { NotFoundComponent } from './NotFound/NotFound.component';
     
     
   ],
-  providers: [],
+  providers: [AnalyticsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

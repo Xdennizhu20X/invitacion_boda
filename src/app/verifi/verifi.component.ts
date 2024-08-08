@@ -18,7 +18,7 @@ export class VerifiComponent implements OnInit {
     // Simulando una espera de 2 segundos antes de redirigir
     setTimeout(() => {
       this.checkName();
-    }, 8000);
+    }, 8000); 
   }
 
   checkName() {
