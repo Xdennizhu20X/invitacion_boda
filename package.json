@@ -1,7 +1,7 @@
 {
   "name": "invitacion-boda",
   "version": "0.0.0",
-  "homepage": "https://xdennizhu20x.github.io/invitacion_boda",
+  "homepage": "https://xdennizhu20x.github.io/invitacion_boda/build",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

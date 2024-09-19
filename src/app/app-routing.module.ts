@@ -1,7 +1,7 @@
-// app-routing.module.ts
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { VerifiComponent } from './verifi/verifi.component';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 const routes: Routes = [
   { path: '', redirectTo: '/verifi', pathMatch: 'full' },
@@ -17,7 +17,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { useHash: true })], // Activar HashLocationStrategy
+  exports: [RouterModule],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }] // Proveer HashLocationStrategy
 })
 export class AppRoutingModule { }
